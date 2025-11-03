@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 4: Limitaciones y Consideraciones ADAS</title>
+    <style>
+        :root {
+            --primary-color: #1a5276;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --success-color: #27ae60;
+            --warning-color: #f39c12;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-color);
+            background-color: #f9f9f9;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        h2 {
+            color: var(--primary-color);
+            margin: 2rem 0 1rem;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 0.5rem;
+        }
+        
+        h3 {
+            color: var(--secondary-color);
+            margin: 1.5rem 0 0.5rem;
+        }
+        
+        h4 {
+            color: var(--primary-color);
+            margin: 1rem 0 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+        }
+        
+        .module-content {
+            background-color: white;
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            margin: 2rem 0;
+        }
+        
+        .subtopic {
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background-color: var(--light-color);
+            border-radius: var(--border-radius);
+            border-left: 4px solid var(--secondary-color);
+        }
+        
+        .key-point {
+            background-color: #e8f4fc;
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            margin: 1rem 0;
+            border-left: 4px solid var(--secondary-color);
+        }
+        
+        .technical-detail {
+            background-color: #fff9e6;
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            margin: 1rem 0;
+            border-left: 4px solid var(--warning-color);
+        }
+        
+        .safety-note {
+            background-color: #ffe6e6;
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            margin: 1rem 0;
+            border-left: 4px solid var(--accent-color);
+        }
+        
+        .limitation-example {
+            background-color: #f8f9fa;
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            margin: 1rem 0;
+            border-left: 4px solid #6c757d;
+        }
+        
+        ul, ol {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .module-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #ddd;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: bold;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: var(--primary-color);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--secondary-color);
+            color: var(--secondary-color);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+        
+        .image-container {
+            width: 100%;
+            margin: 1.5rem 0;
+            text-align: center;
+        }
+        
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+        
+        .caption {
+            font-style: italic;
+            color: #666;
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+        
+        .comparison-table th, .comparison-table td {
+            padding: 0.75rem;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        
+        .comparison-table th {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .comparison-table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        
+        .case-study {
+            background-color: #e8f5e9;
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            margin: 1.5rem 0;
+            border-left: 4px solid var(--success-color);
+        }
+        
+        .case-study h4 {
+            color: var(--success-color);
+            margin-top: 0;
+        }
+        
+        .stat-box {
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            color: white;
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            margin: 1.5rem 0;
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        .warning-box {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            color: #856404;
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            margin: 1rem 0;
+        }
+        
+        .sensor-limitation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .sensor-card {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            border-top: 4px solid var(--secondary-color);
+        }
+        
+        .sensor-card h4 {
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+        
+        .checklist {
+            background-color: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            margin: 1.5rem 0;
+        }
+        
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 0.75rem;
+        }
+        
+        .checklist-item::before {
+            content: "✓";
+            color: var(--success-color);
+            font-weight: bold;
+            margin-right: 0.75rem;
+            flex-shrink: 0;
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .sensor-limitation-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .module-nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .module-nav a {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Módulo 4: Limitaciones y Consideraciones de los Sistemas ADAS</h1>
+            <p>Comprensión exhaustiva de las restricciones, factores humanos y aspectos críticos para el uso seguro de tecnologías ADAS</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="module-content">
+            <h2>Módulo 4: Limitaciones y Consideraciones de los Sistemas ADAS</h2>
+            
+            <div class="image-container">
+                <img src="https://images.unsplash.com/photo-1612815154852-4c8a6e6c5b0a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Limitaciones de ADAS en mal tiempo">
+                <div class="caption">Los sistemas ADAS presentan limitaciones significativas en condiciones climáticas adversas que todo usuario debe comprender</div>
+            </div>
+            
+            <p>En este módulo crítico, exploraremos en profundidad las limitaciones inherentes de los sistemas ADAS, los factores humanos que afectan su uso seguro, las consideraciones de mantenimiento y calibración, y los aspectos legales y éticos que rodean estas tecnologías. Comprender estas limitaciones es fundamental para utilizar los sistemas ADAS de manera segura y efectiva.</p>
+            
+            <div class="stat-box">
+                <span class="stat-number">40%</span>
+                <span class="stat-label">de los conductores sobrestiman las capacidades de los sistemas ADAS</span>
+            </div>
+            
+            <h3>4.1 Condiciones Climáticas Adversas y Limitaciones Ambientales</h3>
+            <div class="subtopic">
+                <h4>Impacto detallado en los diferentes tipos de sensores</h4>
+                <p>Los sistemas ADAS dependen críticamente de la precisión de sus sensores, y las condiciones climáticas adversas pueden comprometer significativamente su funcionamiento. Cada tipo de sensor se ve afectado de manera diferente según las condiciones ambientales:</p>
+                
+                <div class="sensor-limitation-grid">
+                    <div class="sensor-card">
+                        <h4>Cámaras Ópticas</h4>
+                        <p><strong>Principales vulnerabilidades:</strong></p>
+                        <ul>
+                            <li>Lluvia intensa: Gotas en el parabrisas distorsionan la imagen</li>
+                            <li>Nieve: Acumulación en la carcasa y lente</li>
+                            <li>Niebla: Dispersión de la luz reduce contraste y visibilidad</li>
+                            <li>Condensación: Empañamiento interno de la cámara</li>
+                            <li>Deslumbramiento: Reflexiones solares o de faros</li>
+                        </ul>
+                        <div class="technical-detail">
+                            <p><strong>Reducción de efectividad:</strong> Hasta un 80% en condiciones de lluvia intensa y hasta 95% en niebla densa.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="sensor-card">
+                        <h4>Sistemas Radar</h4>
+                        <p><strong>Principales vulnerabilidades:</strong></p>
+                        <ul>
+                            <li>Lluvia intensa: Atenuación de señal y falsos ecos</li>
+                            <li>Nieve acumulada: Bloqueo físico del sensor</li>
+                            <li>Interferencias: Multi-trayectoria en entornos urbanos</li>
+                            <li>Objetos pequeños: Dificultad para detectar en precipitación</li>
+                        </ul>
+                        <div class="technical-detail">
+                            <p><strong>Reducción de efectividad:</strong> Aproximadamente 20-30% en lluvia intensa, pero sigue siendo el sensor más robusto en mal tiempo.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="sensor-card">
+                        <h4>Sensores Lidar</h4>
+                        <p><strong>Principales vulnerabilidades:</strong></p>
+                        <ul>
+                            <li>Lluvia/Nieve: Dispersión de haces láser</li>
+                            <li>Niebla: Atenuación extrema de la señal</li>
+                            <li>Superficies reflectantes: Reflexiones múltiples</li>
+                            <li>Suciedad: Acumulación en lentes de salida</li>
+                        </ul>
+                        <div class="technical-detail">
+                            <p><strong>Reducción de efectividad:</strong> Hasta 70-90% en condiciones de precipitación intensa o niebla densa.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="sensor-card">
+                        <h4>Sensores Ultrasónicos</h4>
+                        <p><strong>Principales vulnerabilidades:</strong></p>
+                        <ul>
+                            <li>Viento fuerte: Interferencia acústica</li>
+                            <li>Lluvia intensa: Ruido ambiental y atenuación</li>
+                            <li>Suciedad: Obstrucción física de transductores</li>
+                            <li>Temperaturas extremas: Cambio en velocidad del sonido</li>
+                        </ul>
+                        <div class="technical-detail">
+                            <p><strong>Reducción de efectividad:</strong> Hasta 50% en condiciones de viento fuerte o lluvia intensa.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <h4>Estrategias de mitigación y compensación</h4>
+                <p>Los fabricantes implementan diversas estrategias para mitigar los efectos de las condiciones adversas:</p>
+                
+                <div class="comparison-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Estrategia</th>
+                                <th>Tecnología</th>
+                                <th>Efectividad</th>
+                                <th>Limitaciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Limpieza automática</strong></td>
+                                <td>Lavaparabrisas para cámaras, chorros de aire para sensores</td>
+                                <td>Alta para suciedad ligera</td>
+                                <td>No efectivo con hielo o suciedad adherente</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Calefacción integrada</strong></td>
+                                <td>Elementos calefactores en sensores</td>
+                                <td>Excelente para nieve/hielo</td>
+                                <td>Consumo energético adicional</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Filtros algorítmicos</strong></td>
+                                <td>Software para discriminar ruido ambiental</td>
+                                <td>Moderada a alta</td>
+                                <td>Puede filtrar señales válidas</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Fusión de sensores</strong></td>
+                                <td>Combinación de datos de múltiples sensores</td>
+                                <td>Muy alta</td>
+                                <td>Complejidad y costo elevado</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Modos degradados</strong></td>
+                                <td>Funcionamiento con capacidades reducidas</td>
+                                <td>Mantiene funcionalidad básica</td>
+                                <td>Pérdida de funciones avanzadas</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="case-study">
+                    <h4>Estudio de Caso: Incidente en Autopista Alemana - Diciembre 2022</h4>
+                    <p><strong>Situación:</strong> Colisión múltiple involucrando 5 vehículos equipados con ADAS durante una nevada intensa en la autopista A8 cerca de Múnich.</p>
+                    <p><strong>Causa principal:</strong> Acumulación de nieve en los sensores de los vehículos líderes, causando fallos en cascada en los sistemas ACC y AEB.</p>
+                    <p><strong>Hallazgos:</strong>
+                        <ul>
+                            <li>El 80% de los sensores frontales estaban parcial o totalmente obstruidos por nieve</li>
+                            <li>Solo 2 de 5 vehículos mostraron alertas claras de fallo del sistema</li>
+                            <li>Los conductores no realizaron limpieza manual de sensores durante paradas</li>
+                            <li>El tiempo de reacción humano fue insuficiente para compensar las fallas del sistema</li>
+                        </ul>
+                    </p>
+                    <p><strong>Lecciones aprendidas:</strong> Necesidad de protocolos de verificación manual de sensores en condiciones invernales y mejoras en los sistemas de alerta al conductor.</p>
+                </div>
+                
+                <div class="safety-note">
+                    <p><strong>Procedimiento de seguridad crítico:</strong> En condiciones climáticas adversas, los conductores deben verificar físicamente el estado de los sensores ADAS durante las paradas, limpiar cualquier obstrucción y estar preparados para asumir el control completo del vehículo en cualquier momento. Los sistemas ADAS no deben considerarse fiables en condiciones climáticas extremas.</p>
+                </div>
+            </div>
+            
+            <h3>4.2 Limitaciones Técnicas y de Diseño de los Sensores</h3>
+            <div class="subtopic">
+                <h4>Restricciones físicas fundamentales de cada tecnología</h4>
+                <p>Cada tipo de sensor utilizado en los sistemas ADAS tiene limitaciones físicas inherentes que determinan su aplicabilidad y efectividad en diferentes escenarios:</p>
+                
+                <div class="comparison-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Parámetro</th>
+                                <th>Cámaras</th>
+                                <th>Radar</th>
+                                <th>Lidar</th>
+                                <th>Ultrasonidos</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Alcance máximo efectivo</strong></td>
+                                <td>50-100 m</td>
+                                <td>250 m</td>
+                                <td>200 m</td>
+                                <td>5-8 m</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Campo de visión típico</strong></td>
+                                <td>50°</td>
+                                <td>20°-60°</td>
+                                <td>30°-120°</td>
+                                <td>80°-120°</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Resolución angular</strong></td>
+                                <td>Alta (0.01°)</td>
+                                <td>Baja (1°-5°)</td>
+                                <td>Media-Alta (0.1°-0.5°)</td>
+                                <td>Muy baja (>10°)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Resolución de distancia</strong></td>
+                                <td>Baja</td>
+                                <td>0.1-0.5 m</td>
+                                <td>0.01-0.05 m</td>
+                                <td>0.01-0.1 m</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Velocidad de muestreo</strong></td>
+                                <td>30-60 fps</td>
+                                <td>10-20 Hz</td>
+                                <td>5-20 Hz</td>
+                                <td>10-20 Hz</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Objetos pequeños (5cm)</strong></td>
+                                <td>Difícil >30 m</td>
+                                <td>Difícil >50 m</td>
+                                <td>Posible hasta 100 m</td>
+                                <td>Solo corta distancia</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <h4>Problemas de falsos positivos y negativos</h4>
+                <p>Uno de los mayores desafíos en los sistemas ADAS es el balance entre sensibilidad y especificidad en la detección de amenazas reales:</p>
+                
+                <div class="limitation-example">
+                    <h4>Falsos Positivos Comunes</h4>
+                    <ul>
+                        <li><strong>Sombras pronunciadas:</strong> Interpretadas como obstáculos por sistemas de cámaras</li>
+                        <li><strong>Reflejos en túneles:</strong> Detectados como vehículos por radares</li>
+                        <li><strong>Señales de tráfico:</strong> Mal interpretadas por sistemas de reconocimiento</li>
+                        <li><strong>Rejillas de ventilación en puentes:</strong> Detectadas como obstáculos bajos</li>
+                        <li><strong>Baches profundos:</strong> Interpretados como obstáculos por algunos sistemas</li>
+                    </ul>
+                </div>
+                
+                <div class="limitation-example">
+                    <h4>Falsos Negativos Críticos</h4>
+                    <ul>
+                        <li><strong>Vehículos que se detienen bruscamente:</strong> Algunos sistemas no anticipan paradas completas</li>
+                        <li><strong>Motocicletas en ángulos agudos:</strong> Perfil delgado difícil de detectar</li>
+                        <li><strong>Objetos negros en asfalto mojado:</strong> Bajo contraste para cámaras</li>
+                        <li><strong>Animales pequeños:</strong> Dificultad de detección especialmente de noche</li>
+                        <li><strong>Vehículos cortando en intersecciones:</strong> Trayectorias complejas de predecir</li>
+                    </ul>
+                </div>
+                
+                <h4>Limitaciones en escenarios de conducción complejos</h4>
+                <p>Los sistemas ADAS actuales tienen dificultades significativas en situaciones que los conductores humanos manejan con relativa facilidad:</p>
+                
+                <ul>
+                    <li><strong>Intersecciones complejas:</strong> Rotondas de múltiples carriles, intersecciones en T con ángulos agudos</li>
+                    <li><strong>Zonas de obras:</strong> Señalización temporal, desvíos, carriles estrechos</li>
+                    <li><strong>Carreteras rurales sin marcas:</strong> Ausencia de líneas de carril claras</li>
+                    <li><strong>Condiciones de tráfico agresivo:</strong> Comportamientos impredecibles de otros conductores</li>
+                    <li><strong>Maniobras de emergencia:</strong> Situaciones que requieren decisiones éticas complejas</li>
+                    <li><strong>Zonas escolares:</strong> Alta densidad de peatones con comportamientos impredecibles</li>
+                </ul>
+                
+                <div class="technical-detail">
+                    <p><strong>Desafío técnico fundamental:</strong> La brecha semántica - mientras los sistemas ADAS pueden detectar objetos con alta precisión, tienen dificultades para comprender el contexto completo, las intenciones de otros usuarios de la vía y las normas sociales no escritas que gobiernan la conducción humana.</p>
+                </div>
+            </div>
+            
+            <h3>4.3 Factores Humanos y Consideraciones del Conductor</h3>
+            <div class="subtopic">
+                <h4>Sobreconfianza y automatización complaciente</h4>
+                <p>Uno de los riesgos más significativos asociados con los sistemas ADAS es la tendencia humana a desarrollar excesiva confianza en la automatización, lo que lleva a lo que se conoce como "automatización complaciente":</p>
+                
+                <div class="stat-box">
+                    <span class="stat-number">46%</span>
+                    <span class="stat-label">de conductores han experimentado situaciones donde confiaron demasiado en ADAS</span>
+                </div>
+                
+                <p>Este fenómeno se manifiesta de varias maneras peligrosas:</p>
+                
+                <ul>
+                    <li><strong>Disminución de la vigilancia:</strong> Los conductores monitorean menos activamente la carretera y los espejos</li>
+                    <li><strong>Tiempos de reacción prolongados:</strong> Hasta 2-3 segundos más para recuperar el control en emergencias</li>
+                    <li><strong>Comportamientos de riesgo compensatorios:</strong> Mayor tendencia a realizar actividades distractoras (uso del teléfono, etc.)</li>
+                    <li><strong>Pérdida de habilidades:</strong> Deterioro progresivo de las capacidades de conducción manual</li>
+                    <li><strong>Malentendidos sobre capacidades del sistema:</strong> Expectativas irreales sobre lo que los ADAS pueden hacer</li>
+                </ul>
+                
+                <div class="case-study">
+                    <h4>Estudio de la Universidad de Utah - Comportamiento con Sistemas ADAS</h4>
+                    <p><strong>Metodología:</strong> 80 conductores evaluados durante 4 semanas usando vehículos con ACC y LKA activos.</p>
+                    <p><strong>Hallazgos clave:</strong>
+                        <ul>
+                            <li>El 62% mostró disminución significativa en el escaneo visual de espejos</li>
+                            <li>El 45% aumentó el uso del smartphone durante la conducción</li>
+                            <li>El 28% admitió haber realizado tareas no relacionadas con la conducción</li>
+                            <li>Los tiempos de reacción a eventos inesperados aumentaron en promedio 1.8 segundos</li>
+                        </ul>
+                    </p>
+                    <p><strong>Conclusión:</strong> La automatización parcial puede crear falsa seguridad y comportamientos de riesgo si no se gestiona adecuadamente.</p>
+                </div>
+                
+                <h4>Diseño de interfaces efectivas para mantener la conciencia situacional</h4>
+                <p>Las interfaces hombre-máquina (HMI) en vehículos con ADAS son críticas para mantener al conductor en el circuito y preparado para tomar el control:</p>
+                
+                <div class="comparison-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Elemento de Interfaz</th>
+                                <th>Buenas Prácticas</th>
+                                <th>Malas Prácticas</th>
+                                <th>Ejemplo</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Indicadores de estado</strong></td>
+                                <td>Claros, intuitivos, con códigos de color estandarizados</td>
+                                <td>Iconos ambiguos, múltiples estados confusos</td>
+                                <td>Volvo: Icono de volante verde cuando LKA activo</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Alertas auditivas</strong></td>
+                                <td>Distintivas, escalonadas, no excesivas</td>
+                                <td>Sonidos genéricos, demasiado frecuentes</td>
+                                <td>Mercedes: Sonido específico para cada tipo de alerta</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Alertas hápticas</strong></td>
+                                <td>Localizadas, intensidad proporcional a urgencia</td>
+                                <td>Vibraciones genéricas, demasiado suaves o bruscas</td>
+                                <td>BMW: Vibración en lado correspondiente al peligro</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Display de cabeza arriba (HUD)</strong></td>
+                                <td>Información mínima esencial, bien posicionada</td>
+                                <td>Sobrecarga de información, obstrucción de vista</td>
+                                <td>Audi: Solo velocidad y alertas críticas en HUD</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Transiciones de control</strong></td>
+                                <td>Progresivas, con advertencias suficientes</td>
+                                <td>Bruscas, con avisos insuficientes</td>
+                                <td>Tesla: Secuencia escalonada antes de desactivación</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <h4>Diversidad de usuarios y necesidades de formación</h4>
+                <p>No todos los conductores interactúan con los sistemas ADAS de la misma manera, y existen importantes diferencias según:</p>
+                
+                <ul>
+                    <li><strong>Edad y experiencia:</strong> Conductores mayores pueden tener más dificultades con interfaces complejas</li>
+                    <li><strong>Familiaridad tecnológica:</strong> Diferentes niveles de comodidad con sistemas automatizados</li>
+                    <li><strong>Estilos de conducción:</strong> Conductores agresivos vs. conservadores</li>
+                    <li><strong>Capacidades físicas y cognitivas:</strong> Variaciones en tiempo de reacción, percepción, etc.</li>
+                </ul>
+                
+                <div class="key-point">
+                    <p><strong>Recomendación crítica:</strong> Los fabricantes y concesionarios deben proporcionar formación obligatoria y personalizada sobre las limitaciones de los sistemas ADAS, similar a los cursos de familiarización que se ofrecen con vehículos de alto rendimiento. Esta formación debe incluir demostraciones prácticas de las limitaciones en condiciones controladas.</p>
+                </div>
+            </div>
+            
+            <h3>4.4 Mantenimiento, Calibración y Consideraciones de Reparación</h3>
+            <div class="subtopic">
+                <h4>Necesidad crítica de calibración después de reparaciones</h4>
+                <p>Los sistemas ADAS requieren calibración precisa para funcionar correctamente, y muchas operaciones de mantenimiento rutinario o reparación pueden afectar su alineación:</p>
+                
+                <div class="checklist">
+                    <h4>Procedimientos que requieren calibración de ADAS</h4>
+                    <div class="checklist-item">Reemplazo o reparación del parabrisas (afecta cámaras frontales)</div>
+                    <div class="checklist-item">Reemplazo de paragolpes delantero o trasero (afecta radares/ultrasonidos)</div>
+                    <div class="checklist-item">Alineación de dirección o ajuste de suspensión</div>
+                    <div class="checklist-item">Reemplazo de componentes de la suspensión (amortiguadores, muelles)</div>
+                    <div class="checklist-item">Reparación de daños por colisión, incluso menores</div>
+                    <div class="checklist-item">Reemplazo de espejos laterales (pueden contener cámaras)</div>
+                    <div class="checklist-item">Instalación de neumáticos de tamaño diferente al original</div>
+                    <div class="checklist-item">Actualizaciones de software del sistema ADAS</div>
+                </div>
+                
+                <h4>Tipos de calibración y procedimientos</h4>
+                
+                <div class="comparison-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Tipo de Calibración</th>
+                                <th>Procedimiento</th>
+                                <th>Equipamiento Requerido</th>
+                                <th>Tiempo Estimado</th>
+                                <th>Precisión Requerida</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Calibración Estática</strong></td>
+                                <td>Vehículo estacionario con dianas de referencia</td>
+                                <td>Dianas de calibración, equipo de diagnosis, nivel láser</td>
+                                <td>30-90 minutos</td>
+                                <td>±0.1° angular, ±2 mm posición</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Calibración Dinámica</strong></td>
+                                <td>Conducción en condiciones específicas</td>
+                                <td>Equipo de diagnosis, ruta predefinida</td>
+                                <td>15-45 minutos de conducción</td>
+                                <td>Depende del sistema</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Calibración Semidinámica</strong></td>
+                                <td>Combinación de métodos estáticos y dinámicos</td>
+                                <td>Dianas y equipo de diagnosis</td>
+                                <td>45-75 minutos</td>
+                                <td>Alta precisión</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Auto-calibración</strong></td>
+                                <td>El sistema se calibra durante la conducción normal</td>
+                                <td>Ninguno específico</td>
+                                <td>Varios kilómetros</td>
+                                <td>Precisión variable</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="image-container">
+                    <img src="https://images.unsplash.com/photo-1560769680-4f2ef4c4bdf9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Calibración de sensores ADAS">
+                    <div class="caption">Proceso de calibración estática de una cámara frontal ADAS utilizando dianas de precisión en un taller especializado</div>
+                </div>
+                
+                <h4>Costos y consideraciones económicas</h4>
+                <p>El mantenimiento de sistemas ADAS introduce costos significativos que los propietarios deben considerar:</p>
+                
+                <div class="comparison-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Procedimiento</th>
+                                <th>Costo Aproximado</th>
+                                <th>Frecuencia</th>
+                                <th>¿Cubierto por garantía?</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Calibración después de cambio de parabrisas</strong></td>
+                                <td>$150 - $400</td>
+                                <td>Cada cambio de parabrisas</td>
+                                <td>No, generalmente</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Calibración post-colisón</strong></td>
+                                <td>$200 - $600</td>
+                                <td>Después de reparaciones</td>
+                                <td>Depende del seguro</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Reemplazo de sensor radar</strong></td>
+                                <td>$800 - $2,000</td>
+                                <td>Si se daña</td>
+                                <td>Generalmente sí</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Reemplazo de cámara frontal</strong></td>
+                                <td>$500 - $1,500</td>
+                                <td>Si se daña</td>
+                                <td>Generalmente sí</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Diagnóstico de fallos ADAS</strong></td>
+                                <td>$100 - $250</td>
+                                <td>Cuando hay alertas</td>
+                                <td>A veces</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="warning-box">
+                    <p><strong>Advertencia importante:</strong> Muchos talleres no especializados no tienen el equipamiento o entrenamiento necesario para calibrar correctamente los sistemas ADAS. Una calibración incorrecta puede crear un falso sentido de seguridad mientras el sistema funciona de manera deficiente, potencialmente creando situaciones peligrosas.</p>
+                </div>
+                
+                <h4>Verificación del funcionamiento correcto después de mantenimiento</h4>
+                <p>Después de cualquier procedimiento de mantenimiento que afecte los sistemas ADAS, los conductores deben verificar personalmente el funcionamiento correcto:</p>
+                
+                <div class="checklist">
+                    <h4>Lista de verificación post-mantenimiento</h4>
+                    <div class="checklist-item">Confirmar que no hay luces de advertencia ADAS en el cuadro de instrumentos</div>
+                    <div class="checklist-item">Probar el funcionamiento del AEB en área segura y controlada</div>
+                    <div class="checklist-item">Verificar que el ACC mantiene distancia correcta con vehículo precedente</div>
+                    <div class="checklist-item">Comprobar que el LKA responde adecuadamente a líneas de carril</div>
+                    <div class="checklist-item">Validar que las alertas de ángulo muerto funcionan correctamente</div>
+                    <div class="checklist-item">Asegurarse de que todas las cámaras muestran imágenes claras sin distorsión</div>
+                    <div class="checklist-item">Verificar que los sensores de estacionamiento detectan obstáculos apropiadamente</div>
+                </div>
+            </div>
+            
+            <h3>4.5 Aspectos Legales, Regulatorios y de Responsabilidad</h3>
+            <div class="subtopic">
+                <h4>Marco legal actual y responsabilidad del conductor</h4>
+                <p>En la mayoría de jurisdicciones, la responsabilidad legal de la operación segura del vehículo recae siempre en el conductor humano, independientemente del nivel de automatización:</p>
+                
+                <div class="comparison-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>País/Región</th>
+                                <th>Marco Legal ADAS</th>
+                                <th>Responsabilidad Primaria</th>
+                                <th>Requisitos de Homologación</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Unión Europea</strong></td>
+                                <td>Reglamento UE 2019/2144</td>
+                                <td>Conductor</td>
+                                <td>8 sistemas ADAS obligatorios desde 2022</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Estados Unidos</strong></td>
+                                <td>FMVSS, regulación estatal variable</td>
+                                <td>Conductor</td>
+                                <td>Requisitos básicos, en evolución</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Japón</strong></td>
+                                <td>Ley de Tráfico Vial revisada</td>
+                                <td>Conductor</td>
+                                <td>Certificación tipo para nuevos sistemas</td>
+                            </tr>
+                            <tr>
+                                <td><strong>China</strong></td>
+                                <td>GB Standards, regulación progresiva</td>
+                                <td>Conductor/Fabricante</td>
+                                <td>Certificación obligatoria por modelo</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <h4>Dilemas éticos en el diseño de sistemas ADAS</h4>
+                <p>Los sistemas ADAS plantean complejos dilemas éticos que los fabricantes deben abordar en su diseño:</p>
+                
+                <div class="limitation-example">
+                    <h4>El Problema del Vagón de Carga (Trolley Problem) aplicado a ADAS</h4>
+                    <p><strong>Escenario:</strong> El sistema AEB detecta una colisión inminente con dos opciones:</p>
+                    <ul>
+                        <li>Opción A: Impactar a un grupo de peatones que cruzan ilegalmente</li>
+                        <li>Opción B: Desviarse y impactar contra una barrera, poniendo en riesgo al conductor</li>
+                    </ul>
+                    <p><strong>Dilema:</strong> ¿Debe el sistema priorizar la seguridad de los ocupantes o de los peatones?</p>
+                    <p><strong>Realidad actual:</strong> La mayoría de sistemas están programados para priorizar la seguridad de los ocupantes, pero esta decisión tiene implicaciones éticas y potencialmente legales.</p>
+                </div>
+                
+                <h4>Responsabilidad en accidentes con sistemas ADAS activos</h4>
+                <p>La determinación de responsabilidad en accidentes donde estaban activos sistemas ADAS es compleja y puede involucrar múltiples partes:</p>
+                
+                <ul>
+                    <li><strong>Conductor:</strong> Responsable de supervisión adecuada y toma de control cuando sea necesario</li>
+                    <li><strong>Fabricante del vehículo:</strong> Responsable de diseño seguro y funcionamiento según especificaciones</li>
+                    <li><strong>Desarrollador de software:</strong> Responsable de algoritmos y toma de decisiones</li>
+                    <li><strong>Taller de reparación:</strong> Responsable de calibración y mantenimiento correctos</li>
+                    <li><strong>Entidades gubernamentales:</strong> Responsables de infraestructura adecuada y regulación</li>
+                </ul>
+                
+                <div class="case-study">
+                    <h4>Caso Jurídico: Johnson vs. Automaker Inc. (2021)</h4>
+                    <p><strong>Hechos:</strong> Accidente fatal donde el AEB no detectó un camión que había quedado detenido en el carril después de una colisión previa.</p>
+                    <p><strong>Argumentos:</strong>
+                        <ul>
+                            <li><strong>Demandante:</strong> El sistema AEB fue defectuoso al no detectar un vehículo estacionario en el carril</li>
+                            <li><strong>Defensa:</strong> El manual del propietario claramente establece las limitaciones del AEB para detectar vehículos estacionarios</li>
+                            <li><strong>Testigo experto:</strong> Demostró que las condiciones de luz y contraste dificultaban la detección</li>
+                        </ul>
+                    </p>
+                    <p><strong>Resolución:</strong> Acuerdo extrajudicial por cantidad no divulgada, estableciendo que ambos partes compartían responsabilidad.</p>
+                    <p><strong>Impacto:</strong> Este caso llevó a actualizaciones en los manuales de varios fabricantes para ser más explícitos sobre las limitaciones específicas de sus sistemas.</p>
+                </div>
+                
+                <h4>Regulación futura y estandarización</h4>
+                <p>Las autoridades regulatorias worldwide están trabajando en marcos más comprehensivos para los sistemas ADAS:</p>
+                
+                <ul>
+                    <li><strong>ISO 21448 (SOTIF):</strong> Estándar internacional para seguridad de la funcionalidad预期功能安全</li>
+                    <li><strong>UN R79 y R152:</strong> Regulaciones sobre sistemas de dirección y frenado automatizados</li>
+                    <li><strong>SAE J3016:</strong> Actualizaciones continuas a la taxonomía de niveles de automatización</li>
+                    <li><strong>Regulaciones de ciberseguridad:</strong> UN R155 sobre protección contra ciberataques</li>
+                    <li><strong>Estándares de actualización OTA:</strong> Regulación de actualizaciones de software inalámbricas</li>
+                </ul>
+                
+                <div class="key-point">
+                    <p><strong>Perspectiva legal:</strong> Se espera que la responsabilidad comience a desplazarse gradualmente de los conductores hacia los fabricantes a medida que los sistemas alcanzan mayores niveles de automatización (niveles SAE 3+), pero esto requerirá cambios legislativos significativos y el desarrollo de nuevos marcos de responsabilidad civil.</p>
+                </div>
+            </div>
+            
+            <h3>4.6 Consideraciones de Ciberseguridad y Protección de Datos</h3>
+            <div class="subtopic">
+                <h4>Vulnerabilidades de seguridad en sistemas ADAS</h4>
+                <p>Los vehículos modernos con sistemas ADAS son esencialmente "computadoras con ruedas" y presentan múltiples vectores de ataque potenciales:</p>
+                
+                <div class="comparison-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Vector de Ataque</th>
+                                <th>Vulnerabilidad</th>
+                                <th>Impacto Potencial</th>
+                                <th>Ejemplo Real</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Conectividad externa</strong></td>
+                                <td>Wi-Fi, Bluetooth, 4G/5G</td>
+                                <td>Acceso remoto a sistemas críticos</td>
+                                <td>Jeep Cherokee hackeado via 3G (2015)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Interfaces OBD-II</strong></td>
+                                <td>Puerto de diagnóstico</td>
+                                <td>Control directo de sistemas del vehículo</td>
+                                <td>Múltiples demostraciones académicas</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Actualizaciones OTA</strong></td>
+                                <td>Software no verificado</td>
+                                <td>Inyección de código malicioso</td>
+                                <td>Tesla bug bounty program</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Ataques a sensores</strong></td>
+                                <td>Interferencia con señales</td>
+                                <td>Falsas lecturas de sensores</td>
+                                <td>Ataques acústicos a sistemas ultrasonidos</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Aplicaciones móviles</strong></td>
+                                <td>Compañeras del vehículo</td>
+                                <td>Acceso a funciones de control</td>
+                                <td>Vulnerabilidades en apps de BMW, Tesla</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <h4>Protección de datos de sensores y privacidad</h4>
+                <p>Los sistemas ADAS recopilan enormes cantidades de datos sensibles que plantean importantes preocupaciones de privacidad:</p>
+                
+                <div class="limitation-example">
+                    <h4>Datos Recopilados por Sistemas ADAS Típicos</h4>
+                    <ul>
+                        <li><strong>Datos de ubicación:</strong> GPS de alta precisión, historial de rutas</li>
+                        <li><strong>Imágenes y video:</strong> Cámaras que capturan peatones, otros vehículos, propiedades</li>
+                        <li><strong>Comportamiento de conducción:</strong> Aceleración, frenado, patrones de uso</li>
+                        <li><strong>Datos biométricos:</strong> Monitoreo de atención del conductor en algunos sistemas</li>
+                        <li><strong>Interacciones de voz:</strong> Comandos de voz y posiblemente conversaciones</li>
+                    </ul>
+                </div>
+                
+                <h4>Estrategias de mitigación de riesgos de ciberseguridad</h4>
+                <p>Los fabricantes implementan múltiples capas de seguridad para proteger los sistemas ADAS:</p>
+                
+                <div class="checklist">
+                    <h4>Prácticas Recomendadas de Ciberseguridad Vehicular</h4>
+                    <div class="checklist-item">Arquitectura de dominio separada con gateways de seguridad</div>
+                    <div class="checklist-item">Encriptación de datos en reposo y en tránsito</div>
+                    <div class="checklist-item">Autenticación segura para actualizaciones de software</div>
+                    <div class="checklist-item">Monitoreo continuo de anomalías en el comportamiento del sistema</div>
+                    <div class="checklist-item">Segmentación de red para separar sistemas críticos de entretenimiento</div>
+                    <div class="checklist-item">Programas de bug bounty para identificar vulnerabilidades</div>
+                    <div class="checklist-item">Actualizaciones de seguridad regulares durante la vida del vehículo</div>
+                    <div class="checklist-item">Certificados digitales para verificar la autenticidad del software</div>
+                </div>
+                
+                <div class="safety-note">
+                    <p><strong>Consejo de seguridad crítico:</strong> Los propietarios de vehículos con ADAS deben mantener su software actualizado, ser cautelosos con las conexiones de terceros (como dongles OBD-II no autorizados), y estar atentos a los recalls de seguridad cibernética de los fabricantes. La ciberseguridad vehicular es una responsabilidad compartida entre fabricantes, reguladores y usuarios.</p>
+                </div>
+            </div>
+            
+            <div class="module-nav">
+                <a href="#" class="btn btn-outline">← Módulo 3: Sistemas de Asistencia a la Conducción</a>
+                <a href="#" class="btn">Módulo 5: Futuro y Tendencias ADAS →</a>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>Curso de Sistemas Avanzados de Asistencia a la Conducción (ADAS) - 2023</p>
+            <p>Desarrollado para formación técnica especializada en seguridad vehicular</p>
+        </div>
+    </footer>
+</body>
+</html>

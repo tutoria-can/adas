@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 5: Futuro y Tendencias ADAS</title>
+    <style>
+        :root {
+            --primary-color: #1a5276;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --success-color: #27ae60;
+            --warning-color: #f39c12;
+            --future-color: #9b59b6;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-color);
+            background-color: #f9f9f9;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        h2 {
+            color: var(--primary-color);
+            margin: 2rem 0 1rem;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 0.5rem;
+        }
+        
+        h3 {
+            color: var(--secondary-color);
+            margin: 1.5rem 0 0.5rem;
+        }
+        
+        h4 {
+            color: var(--primary-color);
+            margin: 1rem 0 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .future-heading {
+            color: var(--future-color);
+            border-left: 4px solid var(--future-color);
+            padding-left: 1rem;
+            margin: 2rem 0 1rem;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+        }
+        
+        .module-content {
+            background-color: white;
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            margin: 2rem 0;
+        }
+        
+        .subtopic {
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background-color: var(--light-color);
+            border-radius: var(--border-radius);
+            border-left: 4px solid var(--secondary-color);
+        }
+        
+        .future-topic {
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: linear-gradient(135deg, #f5f7fa, #e4e7f0);
+            border-radius: var(--border-radius);
+            border-left: 4px solid var(--future-color);
+        }
+        
+        .key-point {
+            background-color: #e8f4fc;
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            margin: 1rem 0;
+            border-left: 4px solid var(--secondary-color);
+        }
+        
+        .future-point {
+            background-color: #f3e8fd;
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            margin: 1rem 0;
+            border-left: 4px solid var(--future-color);
+        }
+        
+        .technical-detail {
+            background-color: #fff9e6;
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            margin: 1rem 0;
+            border-left: 4px solid var(--warning-color);
+        }
+        
+        .innovation-spotlight {
+            background-color: #e8f5e9;
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            margin: 1.5rem 0;
+            border-left: 4px solid var(--success-color);
+        }
+        
+        .roadmap-item {
+            background-color: #fff3e0;
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            margin: 1rem 0;
+            border-left: 4px solid var(--warning-color);
+        }
+        
+        ul, ol {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .module-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #ddd;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: bold;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: var(--primary-color);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--secondary-color);
+            color: var(--secondary-color);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+        
+        .btn-future {
+            background-color: var(--future-color);
+            color: white;
+        }
+        
+        .btn-future:hover {
+            background-color: #8e44ad;
+        }
+        
+        .image-container {
+            width: 100%;
+            margin: 1.5rem 0;
+            text-align: center;
+        }
+        
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+        
+        .caption {
+            font-style: italic;
+            color: #666;
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+        
+        .comparison-table th, .comparison-table td {
+            padding: 0.75rem;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        
+        .comparison-table th {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .comparison-table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        
+        .future-table th {
+            background-color: var(--future-color);
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 1rem;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--secondary-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border: 4px solid var(--secondary-color);
+            border-radius: 50%;
+            top: 15px;
+            right: -10px;
+            z-index: 1;
+        }
+        
+        .left {
+            left: 0;
+        }
+        
+        .right {
+            left: 50%;
+        }
+        
+        .right::after {
+            left: -10px;
+        }
+        
+        .timeline-content {
+            padding: 20px;
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+        
+        .tech-roadmap {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .roadmap-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            border-top: 4px solid var(--future-color);
+        }
+        
+        .roadmap-card h4 {
+            color: var(--future-color);
+            margin-top: 0;
+        }
+        
+        .tech-trend-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .trend-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            text-align: center;
+            transition: var(--transition);
+        }
+        
+        .trend-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .trend-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--future-color);
+        }
+        
+        .stat-box {
+            background: linear-gradient(135deg, var(--future-color), #8e44ad);
+            color: white;
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            margin: 1.5rem 0;
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        .innovation-showcase {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .innovation-item {
+            flex: 1 1 300px;
+            background: white;
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+        
+        .company-logo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .logo-item {
+            background: white;
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 80px;
+        }
+        
+        .quote {
+            font-style: italic;
+            color: #555;
+            border-left: 4px solid var(--secondary-color);
+            padding-left: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .author {
+            text-align: right;
+            font-weight: bold;
+            color: #333;
+            margin-top: 0.5rem;
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item::after {
+                left: 21px;
+            }
+            
+            .right {
+                left: 0;
+            }
+            
+            .tech-roadmap, .tech-trend-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .module-nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .module-nav a {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Módulo 5: Futuro y Tendencias de los Sistemas ADAS</h1>
+            <p>Explorando las tecnologías emergentes, roadmap de automatización y el impacto transformador en la movilidad del futuro</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="module-content">
+            <h2>Módulo 5: Futuro y Tendencias de los Sistemas ADAS</h2>
+            
+            <div class="image-container">
+                <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Vehículo autónomo del futuro">
+                <div class="caption">Los sistemas ADAS actuales son la base fundamental para los vehículos completamente autónomos del futuro</div>
+            </div>
+            
+            <p>En este módulo final, exploraremos el futuro emocionante de los sistemas ADAS, las tecnologías emergentes que están redefiniendo la movilidad, y las tendencias que transformarán por completo nuestra relación con los vehículos en la próxima década. Desde la conducción autónoma de nivel 3+ hasta la integración con ciudades inteligentes, examinaremos el panorama completo de la evolución ADAS.</p>
+            
+            <div class="stat-box">
+                <span class="stat-number">$550B</span>
+                <span class="stat-label">Mercado global estimado de vehículos autónomos para 2026</span>
+            </div>
+            
+            <h3 class="future-heading">5.1 Conducción Autónoma Nivel 3+ y Más Allá</h3>
+            <div class="future-topic">
+                <h4>Evolución de los niveles de automatización SAE</h4>
+                <p>La Sociedad de Ingenieros Automotrices (SAE) define seis niveles de automatización vehicular que representan el camino evolutivo desde los sistemas ADAS actuales hacia la conducción completamente autónoma:</p>
+                
+                <div class="comparison-table future-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nivel SAE</th>
+                                <th>Definición</th>
+                                <th>Ejemplos Actuales</th>
+                                <th>Horizonte Temporal</th>
+                                <th>Desafíos Principales</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Nivel 0-2</strong></td>
+                                <td>Asistencia al conductor, supervisión humana constante</td>
+                                <td>Tesla Autopilot, GM Super Cruise, Mercedes Drive Pilot</td>
+                                <td>Disponible actualmente</td>
+                                <td>Sobreconfianza del conductor, limitaciones en condiciones complejas</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Nivel 3</strong></td>
+                                <td>Automatización condicional, conductor debe estar preparado para intervenir</td>
+                                <td>Honda Legend Level 3, Mercedes DRIVE PILOT (Alemania)</td>
+                                <td>2023-2025 (limitado geográficamente)</td>
+                                <td>Transiciones de control, responsabilidad legal, geofencing</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Nivel 4</strong></td>
+                                <td>Alta automatización en condiciones operacionales específicas (ODD)</td>
+                                <td>Waymo One, Cruise Origin, Zoox</td>
+                                <td>2025-2028 (flotas comerciales)</td>
+                                <td>Diseño fallo-operacional, regulación, aceptación pública</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Nivel 5</strong></td>
+                                <td>Automatización completa en todas las condiciones</td>
+                                <td>Prototipos de investigación</td>
+                                <td>2030+ (perspectiva conservadora)</td>
+                                <td>Inteligencia artificial general, infraestructura, casos extremos</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <h4>Tecnologías habilitadoras para niveles 3+</h4>
+                <p>La transición hacia niveles superiores de automatización requiere avances significativos en múltiples áreas tecnológicas:</p>
+                
+                <div class="tech-trend-grid">
+                    <div class="trend-card">
+                        <div class="trend-icon">🤖</div>
+                        <h4>IA Explicable</h4>
+                        <p>Sistemas que pueden justificar sus decisiones en lenguaje comprensible para humanos</p>
+                    </div>
+                    <div class="trend-card">
+                        <div class="trend-icon">🛡️</div>
+                        <h4>Arquitecturas Fallo-Operacionales</h4>
+                        <p>Sistemas redundantes que mantienen funcionalidad incluso con fallos críticos</p>
+                    </div>
+                    <div class="trend-card">
+                        <div class="trend-icon">🌐</div>
+                        <h4>Percepción 4D</h4>
+                        <p>Modelado del entorno en 3D + dimensión temporal para predicción precisa</p>
+                    </div>
+                    <div class="trend-card">
+                        <div class="trend-icon">📡</div>
+                        <h4>Sensores de Resolución Atómica</h4>
+                        <p>Nueva generación de sensores con precisión milimétrica a largas distancias</p>
+                    </div>
+                </div>
+                
+                <div class="innovation-spotlight">
+                    <h4>Innovación en Foco: Sistema DRIVE PILOT de Mercedes-Benz</h4>
+                    <p><strong>Características destacadas:</strong> Primer sistema Level 3 aprobado para uso en autopistas alemanas a hasta 60 km/h en condiciones de tráfico denso.</p>
+                    <p><strong>Tecnologías clave:</strong>
+                        <ul>
+                            <li>Redundancia completa en sistemas de dirección, frenado y energía</li>
+                            <li>Mapas HD con precisión centimétrica actualizados en tiempo real</li>
+                            <li>Sistema de respaldo de localización por satélite diferencial</li>
+                            <li>Sensor de humedad en la carretera para determinar condiciones de operación</li>
+                        </ul>
+                    </p>
+                    <p><strong>Implicaciones:</strong> Establece precedente regulatorio y técnico para la implementación comercial de sistemas Level 3 en mercados masivos.</p>
+                </div>
+                
+                <h4>Roadmap de implementación por región</h4>
+                <p>La adopción de vehículos autónomos varía significativamente según las regiones debido a diferencias regulatorias, de infraestructura y aceptación cultural:</p>
+                
+                <div class="tech-roadmap">
+                    <div class="roadmap-card">
+                        <h4>América del Norte</h4>
+                        <p><strong>Líder:</strong> Estados Unidos (especialmente Arizona, California)</p>
+                        <p><strong>Enfoque:</strong> Regulación por estado, fuerte inversión privada</p>
+                        <p><strong>Horizonte:</strong> Level 4 en flotas comerciales 2024-2026</p>
+                        <p><strong>Desafíos:</strong> Marco regulatorio fragmentado, responsabilidad legal</p>
+                    </div>
+                    <div class="roadmap-card">
+                        <h4>Europa</h4>
+                        <p><strong>Líder:</strong> Alemania, Reino Unido, Países Nórdicos</p>
+                        <p><strong>Enfoque:</strong> Regulación armonizada UE, enfoque en seguridad</p>
+                        <p><strong>Horizonte:</strong> Level 3 aprobado, Level 4 2026-2028</p>
+                        <p><strong>Desafíos:</strong> Regulación estricta, infraestructura heterogénea</p>
+                    </div>
+                    <div class="roadmap-card">
+                        <h4>Asia-Pacífico</h4>
+                        <p><strong>Líder:</strong> China, Corea del Sur, Japón</p>
+                        <p><strong>Enfoque:</strong> Inversión estatal masiva, desarrollo acelerado</p>
+                        <p><strong>Horizonte:</strong> Level 4 en ciudades designadas 2025-2027</p>
+                        <p><strong>Desafíos:</strong> Entornos urbanos ultracomplejos, estandarización</p>
+                    </div>
+                </div>
+            </div>
+            
+            <h3 class="future-heading">5.2 Comunicación V2X (Vehículo-a-Todo)</h3>
+            <div class="future-topic">
+                <h4>El ecosistema conectado: Más allá de la percepción a bordo</h4>
+                <p>Los sistemas V2X representan un cambio de paradigma fundamental, permitiendo a los vehículos percibir amenazas y oportunidades más allá de su línea de vista mediante comunicación con su entorno:</p>
+                
+                <div class="image-container">
+                    <img src="https://images.unsplash.com/photo-1555255707-c07966088b7b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Comunicación V2X">
+                    <div class="caption">Arquitectura de un ecosistema V2X completo interconectando vehículos, infraestructura y usuarios vulnerables</div>
+                </div>
+                
+                <h4>Estándares y tecnologías de comunicación</h4>
+                <p>Existen dos tecnologías principales compitiendo para convertirse en el estándar global de comunicación V2X:</p>
+                
+                <div class="comparison-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Parámetro</th>
+                                <th>DSRC (IEEE 802.11p)</th>
+                                <th>C-V2X (3GPP)</th>
+                                <th>Ventaja Competitiva</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Tecnología base</strong></td>
+                                <td>Wi-Fi adaptado (Dedicated Short-Range Communications)</td>
+                                <td>Cellular (4G/5G) evolucionado</td>
+                                <td>C-V2X: Integración con redes celulares existentes</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Latencia</strong></td>
+                                <td>5-20 ms</td>
+                                <td>5-100 ms (depende de implementación)</td>
+                                <td>DSRC: Mejor para seguridad crítica</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Alcance</strong></td>
+                                <td>300-1000 m</td>
+                                <td>Hasta varios km con 5G</td>
+                                <td>C-V2X: Mayor alcance y cobertura</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Adopción regional</strong></td>
+                                <td>EE.UU., Japón (en transición)</td>
+                                <td>China, Europa, EE.UU. (nuevas implementaciones)</td>
+                                <td>C-V2X: Ganando tracción global</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Capacidad de actualización</strong></td>
+                                <td>Limitada</td>
+                                <td>Alta (evolución con estándares celulares)</td>
+                                <td>C-V2X: Futuro proof mediante actualizaciones</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <h4>Aplicaciones transformadoras de V2X</h4>
+                <p>La comunicación vehicular permite escenarios de seguridad y eficiencia imposibles con sistemas a bordo tradicionales:</p>
+                
+                <div class="innovation-showcase">
+                    <div class="innovation-item">
+                        <h4>Intersecciones Inteligentes</h4>
+                        <p><strong>Función:</strong> Los vehículos negocian prioridad de paso en intersecciones sin semáforos</p>
+                        <p><strong>Beneficio:</strong> Reducción del 85% en tiempos de espera, eliminación de colisiones en intersecciones</p>
+                        <p><strong>Estado:</strong> Pruebas avanzadas en Singapur y Pittsburgh</p>
+                    </div>
+                    <div class="innovation-item">
+                        <h4>Advertencia de Emergencia Extendida</h4>
+                        <p><strong>Función:</strong> Alertas de vehículos de emergencia con 1 km de anticipación</p>
+                        <p><strong>Beneficio:</strong> Tiempo de reacción ampliado, rutas despejadas automáticamente</p>
+                        <p><strong>Estado:</strong> Implementado en pruebas en la UE</p>
+                    </div>
+                    <div class="innovation-item">
+                        <h4>Platooning Cooperativo</h4>
+                        <p><strong>Función:</strong> Camiones que viajan en formación cerrada con sincronización milimétrica</p>
+                        <p><strong>Beneficio:</strong> 15% reducción en consumo de combustible, 300% aumento en capacidad de carretera</p>
+                        <p><strong>Estado:</strong> Pruebas comerciales en Europa y EE.UU.</p>
+                    </div>
+                </div>
+                
+                <div class="future-point">
+                    <p><strong>Visión a largo plazo:</strong> Para 2030, se espera que el 80% de los vehículos nuevos en mercados desarrollados incluyan capacidades V2X, creando una red de transporte cooperativo que reducirá los accidentes en un 70% y optimizará el flujo de tráfico en un 40%.</p>
+                </div>
+                
+                <h4>Integración con infraestructura inteligente</h4>
+                <p>El verdadero potencial de V2X se realiza cuando se integra con infraestructura urbana inteligente:</p>
+                
+                <ul>
+                    <li><strong>Semáforos adaptativos:</strong> Que ajustan sus ciclos basándose en el flujo de tráfico real</li>
+                    <li><strong>Zonas de riesgo dinámicas:</strong> Que alertan sobre condiciones peligrosas (hielo, obstáculos)</li>
+                    <li><strong>Gestión de prioridad:</strong> Para transporte público y vehículos de emergencia</li>
+                    <li><strong>Estacionamiento cooperativo:</strong> Reserva y guiado automático a plazas disponibles</li>
+                    <li><strong>Peaje virtual:</strong> Sistemas de cobro sin barreras físicas</li>
+                </ul>
+            </div>
+            
+            <h3 class="future-heading">5.3 Inteligencia Artificial y Aprendizaje Automático en ADAS</h3>
+            <div class="future-topic">
+                <h4>Revolución algorítmica: De la programación tradicional al aprendizaje profundo</h4>
+                <p>La inteligencia artificial está transformando fundamentalmente cómo los sistemas ADAS perciben, deciden y actúan, superando las limitaciones de los algoritmos tradicionales basados en reglas:</p>
+                
+                <div class="timeline">
+                    <div class="timeline-item left">
+                        <div class="timeline-content">
+                            <h4>2010-2015</h4>
+                            <p><strong>Enfoque:</strong> Algoritmos basados en reglas y visión computacional clásica</p>
+                            <p><strong>Limitaciones:</strong> Fragilidad ante variaciones, requerimiento de programación manual explícita</p>
+                            <p><strong>Ejemplo:</strong> Detección de peatones usando HOG + SVM</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item right">
+                        <div class="timeline-content">
+                            <h4>2015-2020</h4>
+                            <p><strong>Enfoque:</strong> Aprendizaje profundo para percepción, reglas para decisión</p>
+                            <p><strong>Avances:</strong> Mejora dramática en detección y clasificación de objetos</p>
+                            <p><strong>Ejemplo:</strong> Redes neuronales convolucionales para detección</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item left">
+                        <div class="timeline-content">
+                            <h4>2020-2025</h4>
+                            <p><strong>Enfoque:</strong> Aprendizaje por refuerzo para toma de decisiones</p>
+                            <p><strong>Avances:</strong> Comportamientos más naturales y adaptativos</p>
+                            <p><strong>Ejemplo:</strong> Sistemas de navegación que aprenden de conductores humanos</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item right">
+                        <div class="timeline-content">
+                            <h4>2025+</h4>
+                            <p><strong>Enfoque:</strong> IA explicable y sistemas de propósito general</p>
+                            <p><strong>Avances:</strong> Comprensión contextual profunda, razonamiento causal</p>
+                            <p><strong>Ejemplo:</strong> Vehículos que explican sus decisiones y aprenden de experiencias únicas</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <h4>Arquitecturas de IA de última generación</h4>
+                <p>Los sistemas ADAS modernos emplean arquitecturas de IA cada vez más sofisticadas:</p>
+                
+                <div class="comparison-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Arquitectura</th>
+                                <th>Aplicación Principal</th>
+                                <th>Ventajas</th>
+                                <th>Implementaciones Notables</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Redes Transformer</strong></td>
+                                <td>Percepción multi-sensor, predicción de trayectorias</td>
+                                <td>Excelente con secuencias, atención a características relevantes</td>
+                                <td>Tesla Vision, NVIDIA DriveNet</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Redes Generativas Adversarias (GANs)</strong></td>
+                                <td>Simulación, aumento de datos, casos extremos</td>
+                                <td>Generación de escenarios de entrenamiento realistas</td>
+                                <td>Waymo Simulation, Cruise ML Pipeline</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Aprendizaje por Refuerzo Multiagente</strong></td>
+                                <td>Navegación en entornos complejos, interacción social</td>
+                                <td>Comportamientos emergentes, adaptación a conductores humanos</td>
+                                <td>DeepMind colaboración con Waymo</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Redes Neuronales Graph</strong></td>
+                                <td>Comprensión de escenas, relaciones entre objetos</td>
+                                <td>Modelado explícito de relaciones, razonamiento estructural</td>
+                                <td>Argo AI, Mobileye Responsibility-Sensitive Safety</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="innovation-spotlight">
+                    <h4>Innovación en Foco: Tesla Dojo y Sistema de Visión Pura</h4>
+                    <p><strong>Enfoque radical:</strong> Eliminación completa de radar y dependencia exclusiva en visión por computadora basada en redes neuronales.</p>
+                    <p><strong>Tecnologías clave:</strong>
+                        <ul>
+                            <li>Supercomputadora Dojo: Entrenamiento de modelos a escala sin precedentes</li>
+                            <li>Arquitectura hidra: Múltiples redes especializadas trabajando en conjunto</li>
+                            <li>Aprendizaje federado: Mejora continua basada en datos de flota global</li>
+                            <li>Simulación a escala: Billones de millas virtuales para entrenamiento</li>
+                        </ul>
+                    </p>
+                    <p><strong>Resultados:</strong> Mejora del 300% en detección de objetos pequeños y reducción del 40% en falsos positivos respecto a sistemas híbridos anteriores.</p>
+                </div>
+                
+                <h4>Desafíos en IA para sistemas de seguridad crítica</h4>
+                <p>La aplicación de IA en entornos de seguridad crítica plantea desafíos únicos:</p>
+                
+                <div class="tech-roadmap">
+                    <div class="roadmap-card">
+                        <h4>Robustez y Generalización</h4>
+                        <p><strong>Problema:</strong> Los modelos pueden fallar catastróficamente en situaciones no vistas durante el entrenamiento</p>
+                        <p><strong>Soluciones emergentes:</strong> Aprendizaje auto-supervisado, aumento de datos adversarial, detección de fuera-de-distribución</p>
+                    </div>
+                    <div class="roadmap-card">
+                        <h4>Explicabilidad y Transparencia</h4>
+                        <p><strong>Problema:</strong> Las decisiones de redes neuronales profundas son inherentemente opacas</p>
+                        <p><strong>Soluciones emergentes:</strong> IA explicable (XAI), atención visualizable, justificaciones naturales del lenguaje</p>
+                    </div>
+                    <div class="roadmap-card">
+                        <h4>Certificación y Verificación</h4>
+                        <p><strong>Problema:</strong> Métodos tradicionales de verificación no aplican a sistemas basados en datos</p>
+                        <p><strong>Soluciones emergentes:</strong> Verificación formal probabilística, monitoreo en tiempo real, arquitecturas con garantías formales</p>
+                    </div>
+                </div>
+                
+                <div class="quote">
+                    "La IA no se trata de reemplazar a los conductores humanos, sino de amplificar nuestras capacidades mientras compensa nuestras limitaciones. El futuro es colaborativo, no sustitutivo."
+                    <div class="author">- Dra. Elena Rodriguez, Directora de Investigación en IA Vehicular, Stanford</div>
+                </div>
+            </div>
+            
+            <h3 class="future-heading">5.4 Movilidad como Servicio (MaaS) y Nuevos Modelos de Negocio</h3>
+            <div class="future-topic">
+                <h4>La desaparición de la propiedad individual: Hacia ecosistemas de movilidad integrados</h4>
+                <p>Los sistemas ADAS avanzados están habilitando la transición desde la propiedad vehicular tradicional hacia modelos de movilidad bajo demanda que integran múltiples formas de transporte:</p>
+                
+                <div class="stat-box">
+                    <span class="stat-number">30%</span>
+                    <span class="stat-label">Reducción proyectada en vehículos privados en ciudades para 2035 gracias a MaaS</span>
+                </div>
+                
+                <h4>Arquetipos emergentes de servicios de movilidad</h4>
+                
+                <div class="tech-trend-grid">
+                    <div class="trend-card">
+                        <div class="trend-icon">🚗</div>
+                        <h4>Robotaxis</h4>
+                        <p>Flotas de vehículos autónomos disponibles bajo demanda las 24 horas</p>
+                        <p><strong>Líderes:</strong> Waymo, Cruise, Baidu Apollo</p>
+                    </div>
+                    <div class="trend-card">
+                        <div class="trend-icon">🚐</div>
+                        <h4>Shuttles Autónomos</h4>
+                        <p>Transporte compartido en rutas fijas o dinámicas para primera/última milla</p>
+                        <p><strong>Líderes:</strong> May Mobility, EasyMile, Local Motors</p>
+                    </div>
+                    <div class="trend-card">
+                        <div class="trend-icon">🚛</div>
+                        <h4>Logística Autónoma</h4>
+                        <p>Transporte de mercancías y entregas de última milla sin conductor</p>
+                        <p><strong>Líderes:</strong> TuSimple, Embark, Nuro</p>
+                    </div>
+                    <div class="trend-card">
+                        <div class="trend-icon">🔄</div>
+                        <h4>Plataformas MaaS</h4>
+                        <p>Integración de múltiples servicios en experiencias de viaje unificadas</p>
+                        <p><strong>Líderes:</strong> Uber, Didi, Moovit</p>
+                    </div>
+                </div>
+                
+                <h4>Impacto económico y social de la transición</h4>
+                <p>La adopción generalizada de MaaS con vehículos autónomos tendrá profundas implicaciones:</p>
+                
+                <div class="comparison-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Ámbito de Impacto</th>
+                                <th>Cambio Esperado</th>
+                                <th>Horizonte Temporal</th>
+                                <th>Implicaciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Propiedad Vehicular</strong></td>
+                                <td>Reducción del 40-60% en vehículos privados en áreas urbanas</td>
+                                <td>2030-2035</td>
+                                <td>Liberación de espacio de estacionamiento, reducción de costos de transporte familiar</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Empleo en Transporte</strong></td>
+                                <td>Pérdida neta de 2.8M empleos en EU, creación de 1.2M nuevos</td>
+                                <td>2025-2035</td>
+                                <td>Necesidad de reconversión laboral masiva, nuevos roles en flotas y mantenimiento</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Uso del Suelo Urbano</strong></td>
+                                <td>15-20% de espacio vial reconvertido a otros usos</td>
+                                <td>2030-2040</td>
+                                <td>Oportunidades para vivienda, espacios verdes, comercio en antiguas vías y estacionamientos</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Accesibilidad</strong></td>
+                                <td>Movilidad disponible para 100% de población incluyendo grupos marginados</td>
+                                <td>2028-2035</td>
+                                <td>Inclusión de personas con discapacidad, ancianos, y poblaciones rurales</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="future-point">
+                    <p><strong>Modelo de negocio disruptivo:</strong> Se proyecta que el costo por milla de los robotaxis será de $0.25-0.50 para 2025, comparado con $1.50-2.00 para taxis tradicionales y $0.70-1.20 para vehículos privados, haciendo la movilidad autónoma económicamente irresistible.</p>
+                </div>
+                
+                <h4>Estrategias corporativas y alianzas clave</h4>
+                <p>La carrera hacia la movilidad autónoma ha generado complejas redes de colaboración y competencia:</p>
+                
+                <div class="company-logo-grid">
+                    <div class="logo-item">
+                        <strong>Waymo</strong><br>
+                        (Alphabet)
+                    </div>
+                    <div class="logo-item">
+                        <strong>Cruise</strong><br>
+                        (GM + Honda)
+                    </div>
+                    <div class="logo-item">
+                        <strong>Argo AI</strong><br>
+                        (Ford + VW)
+                    </div>
+                    <div class="logo-item">
+                        <strong>Mobileye</strong><br>
+                        (Intel)
+                    </div>
+                    <div class="logo-item">
+                        <strong>Aurora</strong><br>
+                        (Amazon)
+                    </div>
+                    <div class="logo-item">
+                        <strong>Zoox</strong><br>
+                        (Amazon)
+                    </div>
+                    <div class="logo-item">
+                        <strong>Baidu Apollo</strong><br>
+                        (China)
+                    </div>
+                    <div class="logo-item">
+                        <strong>Motional</strong><br>
+                        (Hyundai + Aptiv)
+                    </div>
+                </div>
+                
+                <div class="innovation-spotlight">
+                    <h4>Innovación en Foco: Servicio Zoox de Amazon</h4>
+                    <p><strong>Enfoque único:</strong> Vehículo bidireccional específicamente diseñado para robotaxi sin concesiones a la conducción humana.</p>
+                    <p><strong>Características revolucionarias:</strong>
+                        <ul>
+                            <li>Diseño simétrico que permite movimiento igual en ambas direcciones</li>
+                            <li>Capacidad para 4 pasajeros frente a frente con experiencia social</li>
+                            <li>133 kWh de batería para operación continua 24/7</li>
+                            <li>Sensores redundantes 360° con alcance de 150 metros</li>
+                        </ul>
+                    </p>
+                    <p><strong>Modelo operativo:</strong> Integración completa con ecosistema logístico de Amazon para optimización multimodal.</p>
+                </div>
+            </div>
+            
+            <h3 class="future-heading">5.5 Sostenibilidad e Impacto Ambiental</h3>
+            <div class="future-topic">
+                <h4>La convergencia crucial: Electrificación, automatización y energías renovables</h4>
+                <p>Los sistemas ADAS y la conducción autónoma se están desarrollando en paralelo con la transición hacia vehículos eléctricos, creando sinergias poderosas para la sostenibilidad:</p>
+                
+                <div class="image-container">
+                    <img src="https://images.unsplash.com/photo-1563720223485-61b5bc89de52?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Vehículo eléctrico autónomo">
+                    <div class="caption">Los vehículos eléctricos autónomos representan la convergencia ideal de movilidad sostenible y seguridad avanzada</div>
+                </div>
+                
+                <h4>Beneficios ambientales de la movilidad autónoma compartida</h4>
+                
+                <div class="comparison-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Parámetro Ambiental</th>
+                                <th>Impacto de AV+EV+Shared</th>
+                                <th>Mecanismo</th>
+                                <th>Potencial de Reducción</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Emisiones de CO2</strong></td>
+                                <td>Reducción del 80-90%</td>
+                                <td>Electrificación + optimización de rutas + reducción de congestión</td>
+                                <td>Equivalente a eliminar 1B toneladas anuales globalmente</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Consumo Energético</strong></td>
+                                <td>Reducción del 60-70%</td>
+                                <td>Conducción eficiente + reducción de peso + aerodinámica optimizada</td>
+                                <td>15-20% de reducción en demanda global de petróleo</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Uso de Materiales</strong></td>
+                                <td>Reducción del 50-60%</td>
+                                <td>Flotas compartidas (5-10x mayor utilización) + diseño para durabilidad</td>
+                                <td>Menor minería, manufactura y desecho de vehículos</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Contaminación Acústica</strong></td>
+                                <td>Reducción del 70-80%</td>
+                                <td>Motores eléctricos silenciosos + patrones de conducción suaves</td>
+                                <td>Mejora significativa en calidad de vida urbana</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <h4>Tecnologías verdes emergentes en vehículos autónomos</h4>
+                <p>La próxima generación de vehículos autónomos incorporará tecnologías de sostenibilidad avanzadas:</p>
+                
+                <div class="tech-roadmap">
+                    <div class="roadmap-card">
+                        <h4>Baterías de Estado Sólido</h4>
+                        <p><strong>Ventajas:</strong> Mayor densidad energética, carga ultra rápida, seguridad mejorada</p>
+                        <p><strong>Estado:</strong> Producción comercial esperada 2026-2028</p>
+                        <p><strong>Impacto en AV:</strong> Autonomías de 800-1000 km, operación 24/7 viable</p>
+                    </div>
+                    <div class="roadmap-card">
+                        <h4>Materiales Sostenibles</h4>
+                        <p><strong>Ventajas:</strong> Reducción de huella de carbono, reciclabilidad mejorada</p>
+                        <p><strong>Estado:</strong> Implementación gradual 2024+</p>
+                        <p><strong>Impacto en AV:</strong> Interiores con biomateriales, estructuras ligeras recicladas</p>
+                    </div>
+                    <div class="roadmap-card">
+                        <h4>Energía Solar Integrada</h4>
+                        <p><strong>Ventajas:</strong> Autonomía extendida, operación fuera de red</p>
+                        <p><strong>Estado:</strong> Prototipos avanzados, comercial 2027+</p>
+                        <p><strong>Impacto en AV:</strong> Carga continua durante operación, menor dependencia de infraestructura</p>
+                    </div>
+                </div>
+                
+                <div class="future-point">
+                    <p><strong>Visión circular:</strong> Los fabricantes están adoptando modelos de economía circular donde los vehículos autónomos están diseñados para desensamblaje fácil, con componentes modulares que pueden ser actualizados, reparados o reciclados, extendiendo su vida útil a 15-20 años y reduciendo el desperdicio en un 80% comparado con los vehículos actuales.</p>
+                </div>
+                
+                <h4>Integración con redes eléctricas inteligentes</h4>
+                <p>Las flotas de vehículos eléctricos autónomos pueden funcionar como recursos de almacenamiento distribuido para la red eléctrica:</p>
+                
+                <ul>
+                    <li><strong>Almacenamiento móvil:</strong> Las baterías de los AV pueden inyectar energía a la red durante picos de demanda</li>
+                    <li><strong>Carga inteligente:</strong> Optimización de tiempos de carga para coincidir con excedentes de energías renovables</li>
+                    <li><strong>Estabilización de red:</strong> Servicios auxiliares de frecuencia y voltaje proporcionados por flotas de AV</li>
+                    <li><strong>Resiliencia energética:</strong> Suministro de energía de emergencia durante cortes mediante vehículos autónomos</li>
+                </ul>
+                
+                <div class="quote">
+                    "La movilidad autónoma eléctrica compartida no es solo una evolución tecnológica; es nuestra mejor oportunidad para reconciliar la movilidad masiva con los límites planetarios. Representa la mayor oportunidad de descarbonización del sector transporte desde la invención del motor de combustión interna."
+                    <div class="author">- Prof. Maria Chen, Directora del Instituto de Movilidad Sostenible, MIT</div>
+                </div>
+            </div>
+            
+            <h3 class="future-heading">5.6 Desafíos Críticos y Consideraciones Éticas</h3>
+            <div class="future-topic">
+                <h4>Los obstáculos restantes en el camino hacia la automatización completa</h4>
+                <p>A pesar del progreso acelerado, existen desafíos fundamentales que deben resolverse antes de que la conducción autónoma pueda desplegarse de manera segura y generalizada:</p>
+                
+                <div class="tech-roadmap">
+                    <div class="roadmap-card">
+                        <h4>El Problema de los Casos Extremos</h4>
+                        <p><strong>Desafío:</strong> Eventos raros pero críticos que ocurren con frecuencia insuficiente para el entrenamiento de IA</p>
+                        <p><strong>Ejemplos:</strong> Animales exóticos en la carretera, objetos cayendo de camiones, comportamientos humanos absolutamente inesperados</p>
+                        <p><strong>Enfoques de solución:</strong> Simulación avanzada, programación basada en principios, arquitecturas híbridas IA+reglas</p>
+                    </div>
+                    <div class="roadmap-card">
+                        <h4>Condiciones Meteorológicas Extremas</h4>
+                        <p><strong>Desafío:</strong> Funcionamiento confiable en lluvia torrencial, nieve densa, hielo negro, niebla espesa</p>
+                        <p><strong>Estado actual:</strong> Limitaciones significativas por encima de Level 2 en condiciones adversas</p>
+                        <p><strong>Enfoques de solución:</strong> Sensores multimodales avanzados, fusión de datos V2X, modelos de predicción meteorológica de alta resolución</p>
+                    </div>
+                    <div class="roadmap-card">
+                        <h4>Interacción Humano-Máquina</h4>
+                        <p><strong>Desafío:</strong> Transiciones seguras de control, comunicación efectiva de capacidades y limitaciones del sistema</p>
+                        <p><strong>Problemas específicos:</strong> Tiempos de toma de control, degradación de habilidades humanas, complacencia de automatización</p>
+                        <p><strong>Enfoques de solución:</strong> Interfaces adaptativas, monitoreo de estado del conductor, entrenamiento específico</p>
+                    </div>
+                </div>
+                
+                <h4>Consideraciones éticas y dilemas morales</h4>
+                <p>La toma de decisiones automatizada en situaciones de vida o muerte plantea profundas cuestiones éticas:</p>
+                
+                <div class="innovation-showcase">
+                    <div class="innovation-item">
+                        <h4>El Dilema del Tranvía Autónomo</h4>
+                        <p><strong>Problema:</strong> ¿Cómo debe decidir un AV entre opciones que inevitablemente causarán daño?</p>
+                        <p><strong>Ejemplo:</strong> Elegir entre atropellar a un peatón o desviarse y poner en riesgo a los ocupantes</p>
+                        <p><strong>Enfoques actuales:</strong> Minimización de daño general, priorización de ocupantes, transparencia en la programación ética</p>
+                    </div>
+                    <div class="innovation-item">
+                        <h4>Responsabilidad y Atribución</h4>
+                        <p><strong>Problema:</strong> ¿Quién es responsable cuando un sistema autónomo causa daño?</p>
+                        <p><strong>Dimensiones:</strong> Fabricante, programador, propietario, regulador, o el sistema mismo</p>
+                        <p><strong>Enfoques emergentes:</strong> Seguro obligatorio específico, fondos de compensación, personalidad jurídica limitada para sistemas de IA</p>
+                    </div>
+                    <div class="innovation-item">
+                        <h4>Equidad y Acceso</h4>
+                        <p><strong>Problema:</strong> ¿Cómo evitar que la movilidad autónoma amplifique desigualdades existentes?</p>
+                        <p><strong>Riesgos:</strong> Desiertos de movilidad, precios discriminatorios, sesgos algorítmicos</p>
+                        <p><strong>Enfoques preventivos:</strong> Regulación de acceso universal, auditorías de equidad algorítmica, subsidios dirigidos</p>
+                    </div>
+                </div>
+                
+                <div class="future-point">
+                    <p><strong>Marco ético emergente:</strong> La industria está convergiendo hacia principios de seguridad por diseño, transparencia radical, equidad algorítmica y responsabilidad proporcional. Organizaciones como la IEEE y la UE están desarrollando marcos éticos específicos para sistemas de IA de seguridad crítica que probablemente se convertirán en estándares globales.</p>
+                </div>
+                
+                <h4>Preparación para la transición socioeconómica</h4>
+                <p>La automatización del transporte tendrá impactos profundos en el empleo y la estructura económica que requieren preparación proactiva:</p>
+                
+                <div class="roadmap-item">
+                    <h4>Estrategias de Transición Laboral</h4>
+                    <ul>
+                        <li><strong>Reconversión profesional:</strong> Programas masivos para conductores profesionales hacia roles en flotas, mantenimiento y supervisión de AV</li>
+                        <li><strong>Educación temprana:</strong> Integración de habilidades para economía autónoma en sistemas educativos</li>
+                        <li><strong>Protección social:</strong> Rediseño de sistemas de seguridad social para economías con alta automatización</li>
+                        <li><strong>Nuevos modelos fiscales:</strong> Impuestos a la automatización para financiar transiciones justas</li>
+                    </ul>
+                </div>
+                
+                <div class="key-point">
+                    <p><strong>Conclusión del módulo:</strong> El futuro de los sistemas ADAS nos lleva hacia un ecosistema de movilidad radicalmente diferente—más seguro, más eficiente y más accesible. Sin embargo, esta transición requiere no solo avances tecnológicos, sino también evolución regulatoria, preparación social y consideración ética profunda. Los próximos cinco años serán decisivos para determinar si realizamos el potencial positivo de estas tecnologías mientras mitigamos sus riesgos y disruptividad.</p>
+                </div>
+            </div>
+            
+            <div class="module-nav">
+                <a href="#" class="btn btn-outline">← Módulo 4: Limitaciones y Consideraciones</a>
+                <a href="#" class="btn btn-future">Evaluación Final del Curso →</a>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>Curso Completo de Sistemas ADAS - Visión Futura &copy; 2023</p>
+            <p>Material educativo desarrollado para comprender la trayectoria evolutiva de las tecnologías de asistencia a la conducción</p>
+        </div>
+    </footer>
+</body>
+</html>
